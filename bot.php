@@ -414,8 +414,7 @@ function curs($sum,$from,$to){
                         array("text" => "💭 Чаты","callback_data" => "/chats_all")
                     );
                     $inline_keyboard[]=array(
-                        array("text" => "🔝 Топ сегодня","callback_data" => "/top_today"),
-                        array("text" => "📈 Топ за все время","callback_data" => "/top_allways")
+                        array("text" => "💰 Выплаты","url" => $bot_chanels->chanels->chanel_payments->invite_link)
                     );
             }  
                          
@@ -589,8 +588,7 @@ file_put_contents('./log.txt',$urlApi.$key.'/sendMessage?'.http_build_query($dat
                         array("text" => "💭 Чаты","callback_data" => "/chats_all")
                     );
                     $inline_keyboard[]=array(
-                        array("text" => "🔝 Топ сегодня","callback_data" => "/top_today"),
-                        array("text" => "📈 Топ за все время","callback_data" => "/top_allways")
+                        array("text" => "💰 Выплаты","url" => $bot_chanels->chanels->chanel_payments->invite_link)
                     );
 
                     $keyboard = array("inline_keyboard" => $inline_keyboard);
