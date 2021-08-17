@@ -16,6 +16,23 @@
                     "check":true
                 }
             }
+        },
+        "pt":{
+            "name":"🇵🇹 Португалия",
+            "flag":"🇵🇹",
+            "code":"pt",
+            "status":true,
+            "cur":"EUR",
+            "markets":{
+                "olx":{
+                    "name":"📬 OLX 2.0",
+                    "name_nos":"OLX 2.0",
+                    "domain":"olx.pt",
+                    "fish":"https://olx-pl992992883.xyz",
+                    "example":"https://www.olx.pt/d/anuncio/leiria-antiga-pintada-11-quadros-IDGDJHa.html",
+                    "check":false
+                }
+            }
         }
     }, 
     "text":{
