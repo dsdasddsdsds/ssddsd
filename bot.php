@@ -396,9 +396,9 @@ function curs($sum,$from,$to){
                     $i=0;
                     foreach($bot_config->countries as $k=>$v){
                         $i=$i+1;
-                        $sect_keyboard[]= array("text" => $v->name,"callback_data" => "/country_".$v->code);
+                        $inline_keyboard[]= array("text" => $v->name,"callback_data" => "/country_".$v->code);
                         //if(count($sect_keyboard)>=2){ 
-                            $inline_keyboard[]=$sect_keyboard;
+                            //$inline_keyboard[]=$sect_keyboard;
                            // $sect_keyboard=[];
                        // } 
                         //if($i>2&&count($sect_keyboard)<2&&count((array)$bot_config->countries)==$i){ 
